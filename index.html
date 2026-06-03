@@ -1888,19 +1888,29 @@ fig.show()`}
                         code={`import geopandas as gpd
 import matplotlib.pyplot as plt
 
-# 1. LOAD SPATIAL DATA
-geojson_url = f"{REPO_URL}/maps/mapIdonesia514tp.geojson"
+
+
+# 1. SETUP: Define Source URLs
+REPO_URL = "https://raw.githubusercontent.com/quarcs-lab/indonesia514/main"
+
+url_gdp  = f"{REPO_URL}/gdp/gdp.csv"
+url_gfcf = f"{REPO_URL}/gfcf/gfcf.csv"
+url_gs   = f"{REPO_URL}/gs/gs.csv"
+url_map  = f"{REPO_URL}/maps/mapIndonesia514_new.geojson"
+
+# 2. LOAD SPATIAL DATA
+geojson_url = f"{REPO_URL}/maps/mapIndonesia514_new.geojson"
 print("Loading GeoJSON map...")
 gdf_boundaries = gpd.read_file(geojson_url)
 
-# 2. SPATIAL DATA PREPARATION
+# 3. SPATIAL DATA PREPARATION
 # Ensure 'districtID' is integer to match the pandas dataframe
 gdf_boundaries['districtID'] = gdf_boundaries['districtID'].astype(int)
 
-# 3. ATTRIBUTE JOIN
+# 4 . ATTRIBUTE JOIN
 gdf_indonesia = gdf_boundaries.merge(df, on='districtID', how='inner')
 
-# 4. VISUALIZATION (Choropleth Map)
+# 5. VISUALIZATION (Choropleth Map)
 fig, ax = plt.subplots(1, 1, figsize=(14, 8))
 
 gdf_indonesia.plot(
