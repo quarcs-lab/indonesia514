@@ -7,7 +7,7 @@ This folder contains district-level data for **Gross Fixed Capital Formation (GF
 - **Name:** Total Gross Fixed Capital Formation (GFCF)
 - **Unit:** IDR Billion
 - **Definition:** Total GFCF in constant prices, real 2010 base year.
-- **Share Indicator:** Data share GFCF tersedia sebagai **(PMTB/PDRB) * 100**.
+- **Share Indicator:** Data share GFCF tersedia sebagai **(GFCF/GDRP) * 100**.
 
 ## Data Notes
 
