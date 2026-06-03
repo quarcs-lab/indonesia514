@@ -1860,12 +1860,12 @@ df = pd.merge(df, df_gs[['districtID', 'gs_2022']], on='districtID', how='inner'
 
 # 4. VERIFY
 print(f"Merge Complete. Final Rows: {len(df)}")
-display(df[['district', 'province', 'Island', 'gdp_2022', 'gfcf_2022', 'gs_2022']].head())
+display(df[['district_en', 'province_en', 'island', 'gdp_2022', 'gfcf_2022', 'gs_2022']].head()) #replace 'district_en' and 'island_en' into 'district_bahasa' and 'island_bahasa' for Bahasa Indonesia version
 
 # 5. SCATTERPLOT: GDP vs Investment
 fig = px.scatter(
     df, x='gdp_2022', y='gfcf_2022',
-    hover_name='district', color='Island',
+    hover_name='district_en', color='island_en',  ## replace 'district_en' and 'island_en' into 'district_bahasa' and 'island_bahasa' for Bahasa Indonesia version
     trendline='ols', trendline_scope='overall',
     labels={'gdp_2022': 'GDP 2022 (Billion IDR)',
             'gfcf_2022': 'GFCF 2022 (Billion IDR)'},
