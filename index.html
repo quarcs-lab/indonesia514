@@ -1692,24 +1692,26 @@ const CONTENT_REGISTRY = [
                     </AnimateIn>
                     <AnimateIn delay={200} className="w-full lg:w-1/2 relative group">
                       <div className="absolute inset-0 bg-cyan-500 rounded-2xl rotate-3 opacity-20 group-hover:rotate-6 transition-transform duration-500"></div>
-                      <div className="relative bg-white/5 backdrop-blur-md rounded-2xl overflow-hidden shadow-lg border border-white/10">
+                      
+                        href="https://gdpelc.users.earthengine.app/view/ndonesia-land-cover-visualization-district-level-2001-2024"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="relative block bg-white/5 backdrop-blur-md rounded-2xl overflow-hidden shadow-lg border border-white/10 hover:border-cyan-500/40 transition-all duration-300"
+                      >
                         <div className="relative w-full overflow-hidden" style={{ paddingBottom: '56.25%' }}>
                           <img
-                            src="images/cover.webp"
-                            alt="Indonesia514 Preview"
-                            className="absolute inset-0 w-full h-full object-cover opacity-60"
+                            src="images/landcover_preview.webp"
+                            alt="Indonesia Land Cover Explorer"
+                            className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-indigo-500/20 to-violet-500/20 flex items-center justify-center">
-                            <div className="text-center">
-                              <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center mx-auto mb-4 border border-white/20">
-                                <Globe size={32} className="text-cyan-400" />
-                              </div>
-                              <p className="text-white font-bold text-lg">{t(lang, 'dash.launch')}</p>
-                              <p className="text-slate-300 text-sm mt-1">{t(lang, 'dash.comingSoon')}</p>
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end justify-start p-6">
+                            <div>
+                              <p className="text-white font-bold text-lg drop-shadow">🌿 Land Cover Explorer</p>
+                              <p className="text-cyan-300 text-sm mt-1 drop-shadow">Click to launch app ↗</p>
                             </div>
                           </div>
                         </div>
-                      </div>
+                      </a>
                     </AnimateIn>
                   </div>
                 </div>
