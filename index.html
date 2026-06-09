@@ -472,13 +472,13 @@
             "mission.card3.desc": "Analyzing fiscal policy and public expenditure distribution across 514 districts and 8 major islands.",
             // Apps
             "dash.eyebrow": "Interactive Apps",
-            "dash.heading": "Explore Regional Economic Dynamics",
-            "dash.description": "No code required. Interactive apps to visualize GDP, investment, and government spending patterns across Indonesian districts.",
-            "dash.bullet.1": "District GDP Maps",
-            "dash.bullet.2": "Investment Pattern Analysis",
-            "dash.bullet.3": "Government Spending Distribution",
-            "dash.bullet.4": "Cross-Island Comparisons",
-            "dash.launch": "Coming Soon",
+            "dash.heading": "Explore Land Cover Dynamics",
+            "dash.description": "No code required. Visualize land cover change across 514 Indonesian districts from 2001 to 2024 using NASA MODIS satellite data.",
+            "dash.bullet.1": "Land Cover Maps (2001–2024)",
+            "dash.bullet.2": "Swipe to Compare Any Two Years",
+            "dash.bullet.3": "Click District → Land Cover Trend Chart",
+            "dash.bullet.4": "Filter by Region and Island Group",
+            "dash.launch": "Launch Land Cover App",
             "dash.comingSoon": "Interactive apps are under development. Stay tuned for GeoExplorer and other visualization tools.",
             // Resources
             "res.eyebrow": "Resources",
@@ -507,6 +507,7 @@
             "link.sourceCode": "Source Code",
             "link.viewCsv": "View CSV",
             "link.viewGeojson": "View GeoJSON",
+            "link.launchApp": "Launch App ↗",
             // Dataset table
             "table.title": "Dataset Architecture & Identifiers",
             "table.subtitle": "The datasets are linked by the unique identifier",
@@ -602,15 +603,15 @@
             "mission.card3.title": "Belanja Pemerintah",
             "mission.card3.desc": "Menganalisis kebijakan fiskal dan distribusi belanja publik di 514 kabupaten/kota dan 8 pulau utama.",
             // Apps
-            "dash.eyebrow": "Aplikasi Interaktif",
-            "dash.heading": "Jelajahi Dinamika Ekonomi Regional",
-            "dash.description": "Tanpa kode. Aplikasi interaktif untuk memvisualisasikan PDB, investasi, dan pola belanja pemerintah di kabupaten/kota Indonesia.",
-            "dash.bullet.1": "Peta PDB Kabupaten/Kota",
-            "dash.bullet.2": "Analisis Pola Investasi",
-            "dash.bullet.3": "Distribusi Belanja Pemerintah",
-            "dash.bullet.4": "Perbandingan Antar Pulau",
-            "dash.launch": "Segera Hadir",
-            "dash.comingSoon": "Aplikasi interaktif sedang dalam pengembangan. Nantikan GeoExplorer dan alat visualisasi lainnya.",
+            "dash.eyebrow": "Interactive Apps",
+            "dash.heading": "Explore Land Cover Dynamics",
+            "dash.description": "No code required. Visualize land cover change across 514 Indonesian districts from 2001 to 2024 using NASA MODIS satellite data.",
+            "dash.bullet.1": "Land Cover Maps (2001–2024)",
+            "dash.bullet.2": "Swipe to Compare Any Two Years",
+            "dash.bullet.3": "Click District → Land Cover Trend Chart",
+            "dash.bullet.4": "Filter by Region and Island Group",
+            "dash.launch": "Launch Land Cover App",
+            "dash.comingSoon": "MODIS MCD12Q1 | 500m Resolution | 514 Districts | 2001–2024",
             // Resources
             "res.eyebrow": "Sumber Daya",
             "res.heading": "Notebook, Aplikasi & Dataset",
@@ -638,6 +639,7 @@
             "link.sourceCode": "Kode Sumber",
             "link.viewCsv": "Lihat CSV",
             "link.viewGeojson": "Lihat GeoJSON",
+            "link.launchApp": "Launch App ↗",
             // Dataset table
             "table.title": "Arsitektur Data & Pengidentifikasi",
             "table.subtitle": "Dataset dihubungkan oleh pengidentifikasi unik",
@@ -1678,10 +1680,15 @@ const CONTENT_REGISTRY = [
                           </li>
                         ))}
                       </ul>
-                      <span className="inline-flex items-center gap-2 text-slate-500 bg-white/5 px-6 py-3 rounded-lg font-semibold border border-white/10 cursor-default">
+                      <a
+                        href="https://gdpelc.users.earthengine.app/view/ndonesia-land-cover-visualization-district-level-2001-2024"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 text-white bg-cyan-500 hover:bg-cyan-600 px-6 py-3 rounded-lg font-semibold transition-all hover:shadow-lg hover:-translate-y-0.5"
+                      >
                         <Globe size={18} />
                         {t(lang, 'dash.launch')}
-                      </span>
+                      </a>
                     </AnimateIn>
                     <AnimateIn delay={200} className="w-full lg:w-1/2 relative group">
                       <div className="absolute inset-0 bg-cyan-500 rounded-2xl rotate-3 opacity-20 group-hover:rotate-6 transition-transform duration-500"></div>
