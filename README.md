@@ -64,11 +64,11 @@ df = pd.merge(df, df_gs[['districtID', 'gs_2022']], on='districtID')
 
 ## Citation
 
-Mendez, C., Abdulah, R., & Arvianto, B. (2026). Indonesia514: A Data Science Repository to Study Regional Development in Indonesia. GitHub. <https://github.com/quarcs-lab/indonesia514>
+Mendez, C., Abdulah, R., Arvianto, B., & Leiva, F. (2026). Indonesia514: A Data Science Repository to Study Regional Development in Indonesia. GitHub. <https://github.com/quarcs-lab/indonesia514>
 
 ```bibtex
 @misc{indonesia5142026,
-  author = {Mendez, Carlos and Abdulah, Rusli and Arvianto, Bimo},
+  author = {Mendez, Carlos and Abdulah, Rusli and Arvianto, Bimo and Leiva, Favio},
   title = {{Indonesia514}: A Data Science Repository to Study Regional Development in Indonesia},
   year = {2026},
   publisher = {GitHub},

@@ -846,7 +846,7 @@ const CONTENT_REGISTRY = [
               name: "Carlos Mendez",
               title: "Associate Professor",
               affiliation: "Nagoya University, Japan",
-              avatar: "https://carlos-mendez.org/authors/admin/avatar_hu789af5602b0564dea21bcf1e67237882_114840_270x270_fill_q100_lanczos_center.jpg",
+              avatar: "https://carlos-mendez.org/authors/admin/avatar_hu789af5602b0564dea21bcf1e67237882_114840_270x270_fill_q75_lanczos_center.jpg",
               website: "https://carlos-mendez.org",
             },
           ],
@@ -864,6 +864,13 @@ const CONTENT_REGISTRY = [
               affiliation: "Nagoya University, Japan",
               avatar: "https://avatars.githubusercontent.com/u/21993532?v=4",
               website: "https://github.com/Arvibim",
+            },
+            {
+              name: "Favio Leiva",
+              title: "Doctoral Student",
+              affiliation: "Nagoya University, Japan",
+              avatar: "https://carlos-mendez.org/authors/leivafavio/avatar_hu1478ef04360308402ac689767a449cdd_125733_270x270_fill_lanczos_center_3.png",
+              website: "https://favioleiva.github.io/",
             },
           ],
         };
@@ -1968,7 +1975,7 @@ plt.show()`}
                   </h2>
                   {(() => {
                     const [apaCopied, setApaCopied] = useState(false);
-                    const apaText = 'Mendez, C., Abdulah, R., & Arvianto, B. (2026). Indonesia514: A Data Science Repository to Study Regional Development in Indonesia. GitHub. https://github.com/quarcs-lab/indonesia514';
+                    const apaText = 'Mendez, C., Abdulah, R., Arvianto, B., & Leiva, F. (2026). Indonesia514: A Data Science Repository to Study Regional Development in Indonesia. GitHub. https://github.com/quarcs-lab/indonesia514';
                     const handleApaCopy = () => {
                       navigator.clipboard.writeText(apaText);
                       setApaCopied(true);
@@ -1995,7 +2002,7 @@ plt.show()`}
                      title="BibTeX"
                      language="latex"
                      code={`@misc{indonesia5142026,
-  author = {Mendez, Carlos and Abdulah, Rusli and Arvianto, Bimo},
+  author = {Mendez, Carlos and Abdulah, Rusli and Arvianto, Bimo and Leiva, Favio},
   title = {{Indonesia514}: A Data Science Repository to Study Regional Development in Indonesia},
   year = {2026},
   publisher = {GitHub},
