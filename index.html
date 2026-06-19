@@ -1906,7 +1906,7 @@ fig.show()`}
 import matplotlib.pyplot as plt
 
 # 1. LOAD SPATIAL DATA
-geojson_url = f"{REPO_URL}/maps/mapIdonesia514tp.geojson"
+geojson_url = REPO_URL + "/maps/mapIdonesia514tp.geojson"
 print("Loading GeoJSON map...")
 gdf_boundaries = gpd.read_file(geojson_url)
 
