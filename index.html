@@ -472,14 +472,14 @@
             "mission.card3.desc": "Analyzing fiscal policy and public expenditure distribution across 514 districts and 8 major islands.",
             // Apps
             "dash.eyebrow": "Interactive Apps",
-            "dash.heading": "Explore Regional Economic Dynamics",
-            "dash.description": "No code required. Interactive apps to visualize GDP, investment, and government spending patterns across Indonesian districts.",
-            "dash.bullet.1": "District GDP Maps",
-            "dash.bullet.2": "Investment Pattern Analysis",
-            "dash.bullet.3": "Government Spending Distribution",
-            "dash.bullet.4": "Cross-Island Comparisons",
-            "dash.launch": "Coming Soon",
-            "dash.comingSoon": "Interactive apps are under development. Stay tuned for GeoExplorer and other visualization tools.",
+            "dash.heading": "Explore Land Cover Dynamics",
+            "dash.description": "No code required. Visualize land cover change across 514 Indonesian districts from 2001 to 2024 using NASA MODIS satellite data.",
+            "dash.bullet.1": "Land Cover Maps (2001–2024)",
+            "dash.bullet.2": "Swipe to Compare Any Two Years",
+            "dash.bullet.3": "Click District → Land Cover Trend Chart",
+            "dash.bullet.4": "Filter by Region and Island Group",
+            "dash.launch": "Launch Land Cover App",
+            "dash.comingSoon": "MODIS MCD12Q1 | 500m Resolution | 514 Districts | 2001–2024",
             // Resources
             "res.eyebrow": "Resources",
             "res.heading": "Notebooks, Apps & Datasets",
@@ -507,6 +507,7 @@
             "link.sourceCode": "Source Code",
             "link.viewCsv": "View CSV",
             "link.viewGeojson": "View GeoJSON",
+            "link.launchApp": "Launch App ↗",
             // Dataset table
             "table.title": "Dataset Architecture & Identifiers",
             "table.subtitle": "The datasets are linked by the unique identifier",
@@ -602,15 +603,15 @@
             "mission.card3.title": "Belanja Pemerintah",
             "mission.card3.desc": "Menganalisis kebijakan fiskal dan distribusi belanja publik di 514 kabupaten/kota dan 8 pulau utama.",
             // Apps
-            "dash.eyebrow": "Aplikasi Interaktif",
-            "dash.heading": "Jelajahi Dinamika Ekonomi Regional",
-            "dash.description": "Tanpa kode. Aplikasi interaktif untuk memvisualisasikan PDB, investasi, dan pola belanja pemerintah di kabupaten/kota Indonesia.",
-            "dash.bullet.1": "Peta PDB Kabupaten/Kota",
-            "dash.bullet.2": "Analisis Pola Investasi",
-            "dash.bullet.3": "Distribusi Belanja Pemerintah",
-            "dash.bullet.4": "Perbandingan Antar Pulau",
-            "dash.launch": "Segera Hadir",
-            "dash.comingSoon": "Aplikasi interaktif sedang dalam pengembangan. Nantikan GeoExplorer dan alat visualisasi lainnya.",
+            "dash.eyebrow": "Interactive Apps",
+            "dash.heading": "Explore Land Cover Dynamics",
+            "dash.description": "No code required. Visualize land cover change across 514 Indonesian districts from 2001 to 2024 using NASA MODIS satellite data.",
+            "dash.bullet.1": "Land Cover Maps (2001–2024)",
+            "dash.bullet.2": "Swipe to Compare Any Two Years",
+            "dash.bullet.3": "Click District → Land Cover Trend Chart",
+            "dash.bullet.4": "Filter by Region and Island Group",
+            "dash.launch": "Launch Land Cover App",
+            "dash.comingSoon": "MODIS MCD12Q1 | 500m Resolution | 514 Districts | 2001–2024",
             // Resources
             "res.eyebrow": "Sumber Daya",
             "res.heading": "Notebook, Aplikasi & Dataset",
@@ -638,6 +639,7 @@
             "link.sourceCode": "Kode Sumber",
             "link.viewCsv": "Lihat CSV",
             "link.viewGeojson": "Lihat GeoJSON",
+            "link.launchApp": "Launch App ↗",
             // Dataset table
             "table.title": "Arsitektur Data & Pengidentifikasi",
             "table.subtitle": "Dataset dihubungkan oleh pengidentifikasi unik",
@@ -708,32 +710,38 @@
         const CONTENT_REGISTRY = [
           // Placeholder Notebooks
           {
-            id: "eda-placeholder",
+            id: "eda-gdp",
             type: "notebook",
-            title: "Exploratory Data Analysis (EDA)",
-            title_id: "Analisis Data Eksploratif (EDA)",
-            description: "Descriptive statistics, regional comparisons, and GDP distribution analysis across 514 districts. (Coming soon)",
-            description_id: "Statistik deskriptif, perbandingan regional, dan analisis distribusi PDB di 514 kabupaten/kota. (Segera hadir)",
+            title: "Exploratory Data Analysis (EDA) — GDP",
+            title_id: "Analisis Data Eksploratif (EDA) — PDB",
+            description: "Descriptive statistics, regional comparisons, and GDP distribution analysis across 514 Indonesian districts (2010–2025).",
+            description_id: "Statistik deskriptif, perbandingan regional, dan analisis distribusi PDB di 514 kabupaten/kota Indonesia (2010–2025).",
             tags: ["eda", "gdp", "regional-economics"],
             color: "cyan",
             icon: "BookOpen",
-            date: "2026-04-13",
+            date: "2026-06-04",
             pinned: true,
-            links: [],
+            links: [
+              { label_key: "link.openInColab", url: "https://colab.research.google.com/github/quarcs-lab/indonesia514/blob/main/notebooks/EDA_GDP_Indonesia514.ipynb", type: "colab" },
+              { label_key: "link.github", url: "https://github.com/quarcs-lab/indonesia514/blob/main/notebooks/EDA_GDP_Indonesia514.ipynb", type: "github" },
+            ],
           },
           {
-            id: "spatial-analysis-placeholder",
+            id: "esda-gdp",
             type: "notebook",
-            title: "Spatial Analysis of Regional GDP",
-            title_id: "Analisis Spasial PDB Regional",
-            description: "Spatial autocorrelation, LISA clusters, and choropleth mapping of GDP across Indonesian districts. (Coming soon)",
-            description_id: "Autokorelasi spasial, klaster LISA, dan pemetaan koroplet PDB di kabupaten/kota Indonesia. (Segera hadir)",
-            tags: ["spatial-analysis", "gdp", "geopandas"],
+            title: "Spatial Distribution & Dependence — GDP",
+            title_id: "Distribusi & Dependensi Spasial — PDB",
+            description: "Map classification schemes (BoxPlot, Fisher-Jenks), spatial weights via Thiessen polygons, Global Moran's I, and LISA cluster analysis.",
+            description_id: "Skema klasifikasi peta, bobot spasial via poligon Thiessen, Moran's I Global, dan analisis klaster LISA untuk 514 kabupaten/kota.",
+            tags: ["spatial-analysis", "pysal", "moran"],
             color: "cyan",
             icon: "BookOpen",
-            date: "2026-04-13",
+            date: "2026-06-04",
             pinned: true,
-            links: [],
+            links: [
+              { label_key: "link.openInColab", url: "https://colab.research.google.com/github/quarcs-lab/indonesia514/blob/main/notebooks/ESDA_GDP_Indonesia514.ipynb", type: "colab" },
+              { label_key: "link.github", url: "https://github.com/quarcs-lab/indonesia514/blob/main/notebooks/ESDA_GDP_Indonesia514.ipynb", type: "github" },
+            ],
           },
           // Placeholder App
           {
@@ -1672,30 +1680,39 @@
                           </li>
                         ))}
                       </ul>
-                      <span className="inline-flex items-center gap-2 text-slate-500 bg-white/5 px-6 py-3 rounded-lg font-semibold border border-white/10 cursor-default">
+                      
+                        href="https://gdpelc.users.earthengine.app/view/ndonesia-land-cover-visualization-district-level-2001-2024"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 text-white bg-cyan-500 hover:bg-cyan-600 px-6 py-3 rounded-lg font-semibold transition-all hover:shadow-lg hover:-translate-y-0.5"
+                      >
                         <Globe size={18} />
                         {t(lang, 'dash.launch')}
-                      </span>
+                      </a>
                     </AnimateIn>
                     <AnimateIn delay={200} className="w-full lg:w-1/2 relative group">
                       <div className="absolute inset-0 bg-cyan-500 rounded-2xl rotate-3 opacity-20 group-hover:rotate-6 transition-transform duration-500"></div>
-                      <div className="relative bg-white/5 backdrop-blur-md rounded-2xl overflow-hidden shadow-lg border border-white/10">
-                        <div className="relative w-full overflow-hidden" style={{ paddingBottom: '56.25%' }}>
-                          <img
-                            src="images/cover.webp"
-                            alt="Indonesia514 Preview"
-                            className="absolute inset-0 w-full h-full object-cover opacity-60"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-indigo-500/20 to-violet-500/20 flex items-center justify-center">
-                            <div className="text-center">
-                              <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center mx-auto mb-4 border border-white/20">
-                                <Globe size={32} className="text-cyan-400" />
+                      <div className="relative bg-white/5 backdrop-blur-md rounded-2xl overflow-hidden shadow-lg border border-white/10 hover:border-cyan-500/40 transition-all duration-300">
+                        
+                          href="https://gdpelc.users.earthengine.app/view/ndonesia-land-cover-visualization-district-level-2001-2024"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="block"
+                        >
+                          <div className="relative w-full overflow-hidden" style={{ paddingBottom: '56.25%' }}>
+                            <img
+                              src="images/landcover_preview.webp"
+                              alt="Indonesia Land Cover Explorer"
+                              className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end justify-start p-6">
+                              <div>
+                                <p className="text-white font-bold text-lg drop-shadow">🌿 Land Cover Explorer</p>
+                                <p className="text-cyan-300 text-sm mt-1 drop-shadow">Click to launch app ↗</p>
                               </div>
-                              <p className="text-white font-bold text-lg">{t(lang, 'dash.launch')}</p>
-                              <p className="text-slate-300 text-sm mt-1">{t(lang, 'dash.comingSoon')}</p>
                             </div>
                           </div>
-                        </div>
+                        </a>
                       </div>
                     </AnimateIn>
                   </div>
