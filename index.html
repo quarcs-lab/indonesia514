@@ -106,18 +106,6 @@
         }
         .float-slow { animation: float 8s ease-in-out infinite; }
         .float-slower { animation: float 12s ease-in-out infinite; }
-        @keyframes ken-burns {
-            0%   { transform: scale(1.05) translate3d(0, 0, 0); }
-            100% { transform: scale(1.2) translate3d(-1.5%, -1.5%, 0); }
-        }
-        .ken-burns {
-            animation: ken-burns 28s ease-in-out infinite alternate;
-            transform-origin: center center;
-            will-change: transform;
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .ken-burns { animation: none; }
-        }
         :focus-visible {
             outline: 2px solid #22d3ee;
             outline-offset: 2px;
@@ -484,13 +472,13 @@
             "mission.card3.desc": "Analyzing fiscal policy and public expenditure distribution across 514 districts and 8 major islands.",
             // Apps
             "dash.eyebrow": "Interactive Apps",
-            "dash.heading": "Explore Land Cover Dynamics",
-            "dash.description": "No code required. Visualize land cover change across 514 Indonesian districts from 2001 to 2024 using NASA MODIS satellite data.",
-            "dash.bullet.1": "Land Cover Maps (2001–2024)",
-            "dash.bullet.2": "Swipe to Compare Any Two Years",
-            "dash.bullet.3": "Click District → Land Cover Trend Chart",
-            "dash.bullet.4": "Filter by Region and Island Group",
-            "dash.launch": "Launch Land Cover App",
+            "dash.heading": "Explore Regional Economic Dynamics",
+            "dash.description": "No code required. Interactive apps to visualize GDP, investment, and government spending patterns across Indonesian districts.",
+            "dash.bullet.1": "District GDP Maps",
+            "dash.bullet.2": "Investment Pattern Analysis",
+            "dash.bullet.3": "Government Spending Distribution",
+            "dash.bullet.4": "Cross-Island Comparisons",
+            "dash.launch": "Coming Soon",
             "dash.comingSoon": "Interactive apps are under development. Stay tuned for GeoExplorer and other visualization tools.",
             // Resources
             "res.eyebrow": "Resources",
@@ -519,7 +507,6 @@
             "link.sourceCode": "Source Code",
             "link.viewCsv": "View CSV",
             "link.viewGeojson": "View GeoJSON",
-            "link.launchApp": "Launch App ↗",
             // Dataset table
             "table.title": "Dataset Architecture & Identifiers",
             "table.subtitle": "The datasets are linked by the unique identifier",
@@ -615,15 +602,15 @@
             "mission.card3.title": "Belanja Pemerintah",
             "mission.card3.desc": "Menganalisis kebijakan fiskal dan distribusi belanja publik di 514 kabupaten/kota dan 8 pulau utama.",
             // Apps
-            "dash.eyebrow": "Interactive Apps",
-            "dash.heading": "Explore Land Cover Dynamics",
-            "dash.description": "No code required. Visualize land cover change across 514 Indonesian districts from 2001 to 2024 using NASA MODIS satellite data.",
-            "dash.bullet.1": "Land Cover Maps (2001–2024)",
-            "dash.bullet.2": "Swipe to Compare Any Two Years",
-            "dash.bullet.3": "Click District → Land Cover Trend Chart",
-            "dash.bullet.4": "Filter by Region and Island Group",
-            "dash.launch": "Launch Land Cover App",
-            "dash.comingSoon": "MODIS MCD12Q1 | 500m Resolution | 514 Districts | 2001–2024",
+            "dash.eyebrow": "Aplikasi Interaktif",
+            "dash.heading": "Jelajahi Dinamika Ekonomi Regional",
+            "dash.description": "Tanpa kode. Aplikasi interaktif untuk memvisualisasikan PDB, investasi, dan pola belanja pemerintah di kabupaten/kota Indonesia.",
+            "dash.bullet.1": "Peta PDB Kabupaten/Kota",
+            "dash.bullet.2": "Analisis Pola Investasi",
+            "dash.bullet.3": "Distribusi Belanja Pemerintah",
+            "dash.bullet.4": "Perbandingan Antar Pulau",
+            "dash.launch": "Segera Hadir",
+            "dash.comingSoon": "Aplikasi interaktif sedang dalam pengembangan. Nantikan GeoExplorer dan alat visualisasi lainnya.",
             // Resources
             "res.eyebrow": "Sumber Daya",
             "res.heading": "Notebook, Aplikasi & Dataset",
@@ -651,7 +638,6 @@
             "link.sourceCode": "Kode Sumber",
             "link.viewCsv": "Lihat CSV",
             "link.viewGeojson": "Lihat GeoJSON",
-            "link.launchApp": "Launch App ↗",
             // Dataset table
             "table.title": "Arsitektur Data & Pengidentifikasi",
             "table.subtitle": "Dataset dihubungkan oleh pengidentifikasi unik",
@@ -858,7 +844,7 @@ const CONTENT_REGISTRY = [
               name: "Carlos Mendez",
               title: "Associate Professor",
               affiliation: "Nagoya University, Japan",
-              avatar: "https://carlos-mendez.org/authors/admin/avatar_hu789af5602b0564dea21bcf1e67237882_114840_270x270_fill_q75_lanczos_center.jpg",
+              avatar: "https://carlos-mendez.org/authors/admin/avatar_hu789af5602b0564dea21bcf1e67237882_114840_270x270_fill_q100_lanczos_center.jpg",
               website: "https://carlos-mendez.org",
             },
           ],
@@ -876,13 +862,6 @@ const CONTENT_REGISTRY = [
               affiliation: "Nagoya University, Japan",
               avatar: "https://avatars.githubusercontent.com/u/21993532?v=4",
               website: "https://github.com/Arvibim",
-            },
-            {
-              name: "Favio Leiva",
-              title: "Doctoral Student",
-              affiliation: "Nagoya University, Japan",
-              avatar: "https://carlos-mendez.org/authors/leivafavio/avatar_hu1478ef04360308402ac689767a449cdd_125733_270x270_fill_lanczos_center_3.png",
-              website: "https://favioleiva.github.io/",
             },
           ],
         };
@@ -1011,7 +990,7 @@ const CONTENT_REGISTRY = [
                 <img
                   src="images/cover.webp"
                   alt="Indonesia Landscape"
-                  className="w-full h-full object-cover ken-burns"
+                  className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-slate-950/75 mix-blend-multiply"></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent"></div>
@@ -1699,39 +1678,30 @@ const CONTENT_REGISTRY = [
                           </li>
                         ))}
                       </ul>
-                      <a
-                        href="https://gdpelc.users.earthengine.app/view/ndonesia-land-cover-visualization-district-level-2001-2024"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center gap-2 text-white bg-cyan-500 hover:bg-cyan-600 px-6 py-3 rounded-lg font-semibold transition-all hover:shadow-lg hover:-translate-y-0.5"
-                      >
+                      <span className="inline-flex items-center gap-2 text-slate-500 bg-white/5 px-6 py-3 rounded-lg font-semibold border border-white/10 cursor-default">
                         <Globe size={18} />
                         {t(lang, 'dash.launch')}
-                      </a>
+                      </span>
                     </AnimateIn>
                     <AnimateIn delay={200} className="w-full lg:w-1/2 relative group">
                       <div className="absolute inset-0 bg-cyan-500 rounded-2xl rotate-3 opacity-20 group-hover:rotate-6 transition-transform duration-500"></div>
-                      <div className="relative bg-white/5 backdrop-blur-md rounded-2xl overflow-hidden shadow-lg border border-white/10 hover:border-cyan-500/40 transition-all duration-300">
-                        <a
-                          href="https://gdpelc.users.earthengine.app/view/ndonesia-land-cover-visualization-district-level-2001-2024"
-                          target="_blank"
-                          rel="noreferrer"
-                          className="block"
-                        >
-                          <div className="relative w-full overflow-hidden" style={{ paddingBottom: '56.25%' }}>
-                            <img
-                              src="images/landcover_preview.webp"
-                              alt="Indonesia Land Cover Explorer"
-                              className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end justify-start p-6">
-                              <div>
-                                <p className="text-white font-bold text-lg drop-shadow">🌿 Land Cover Explorer</p>
-                                <p className="text-cyan-300 text-sm mt-1 drop-shadow">Click to launch app ↗</p>
+                      <div className="relative bg-white/5 backdrop-blur-md rounded-2xl overflow-hidden shadow-lg border border-white/10">
+                        <div className="relative w-full overflow-hidden" style={{ paddingBottom: '56.25%' }}>
+                          <img
+                            src="images/cover.webp"
+                            alt="Indonesia514 Preview"
+                            className="absolute inset-0 w-full h-full object-cover opacity-60"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-indigo-500/20 to-violet-500/20 flex items-center justify-center">
+                            <div className="text-center">
+                              <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center mx-auto mb-4 border border-white/20">
+                                <Globe size={32} className="text-cyan-400" />
                               </div>
+                              <p className="text-white font-bold text-lg">{t(lang, 'dash.launch')}</p>
+                              <p className="text-slate-300 text-sm mt-1">{t(lang, 'dash.comingSoon')}</p>
                             </div>
                           </div>
-                        </a>
+                        </div>
                       </div>
                     </AnimateIn>
                   </div>
@@ -1880,9 +1850,9 @@ import plotly.express as px
 # 1. SETUP: Define Source URLs
 REPO_URL = "https://raw.githubusercontent.com/quarcs-lab/indonesia514/main"
 
-url_gdp  = REPO_URL + "/gdp/gdp.csv"
-url_gfcf = REPO_URL + "/gfcf/gfcf.csv"
-url_gs   = REPO_URL + "/gs/gs.csv"
+url_gdp  = f"{REPO_URL}/gdp/gdp.csv"
+url_gfcf = f"{REPO_URL}/gfcf/gfcf.csv"
+url_gs   = f"{REPO_URL}/gs/gs.csv"
 
 # 2. LOAD: Read CSVs
 print("Loading datasets...")
@@ -1895,7 +1865,7 @@ df = pd.merge(df_gdp, df_gfcf[['districtID', 'gfcf_2022']], on='districtID', how
 df = pd.merge(df, df_gs[['districtID', 'gs_2022']], on='districtID', how='inner')
 
 # 4. VERIFY
-print("Merge Complete. Final Rows: " + str(len(df)))
+print(f"Merge Complete. Final Rows: {len(df)}")
 display(df[['district_en', 'province_en', 'island_en', 'gdp_2022', 'gfcf_2022', 'gs_2022']].head()) #replace 'district_en' and 'island_en' into 'district_bahasa' and 'island_bahasa' for Bahasa Indonesia version
 
 # 5. SCATTERPLOT: GDP vs Investment
@@ -1929,13 +1899,13 @@ import matplotlib.pyplot as plt
 # 1. SETUP: Define Source URLs
 REPO_URL = "https://raw.githubusercontent.com/quarcs-lab/indonesia514/main"
 
-url_gdp  = REPO_URL + "/gdp/gdp.csv"
-url_gfcf = REPO_URL + "/gfcf/gfcf.csv"
-url_gs   = REPO_URL + "/gs/gs.csv"
-url_map  = REPO_URL + "/maps/mapIndonesia514_new.geojson"
+url_gdp  = f"{REPO_URL}/gdp/gdp.csv"
+url_gfcf = f"{REPO_URL}/gfcf/gfcf.csv"
+url_gs   = f"{REPO_URL}/gs/gs.csv"
+url_map  = f"{REPO_URL}/maps/mapIndonesia514_new.geojson"
 
 # 2. LOAD SPATIAL DATA
-geojson_url = REPO_URL + "/maps/mapIndonesia514_new.geojson"
+geojson_url = f"{REPO_URL}/maps/mapIndonesia514_new.geojson"
 print("Loading GeoJSON map...")
 gdf_boundaries = gpd.read_file(geojson_url)
 
@@ -1987,7 +1957,7 @@ plt.show()`}
                   </h2>
                   {(() => {
                     const [apaCopied, setApaCopied] = useState(false);
-                    const apaText = 'Mendez, C., Abdulah, R., Arvianto, B., & Leiva, F. (2026). Indonesia514: A Data Science Repository to Study Regional Development in Indonesia. GitHub. https://github.com/quarcs-lab/indonesia514';
+                    const apaText = 'Mendez, C., Abdulah, R., & Arvianto, B. (2026). Indonesia514: A Data Science Repository to Study Regional Development in Indonesia. GitHub. https://github.com/quarcs-lab/indonesia514';
                     const handleApaCopy = () => {
                       navigator.clipboard.writeText(apaText);
                       setApaCopied(true);
@@ -2014,7 +1984,7 @@ plt.show()`}
                      title="BibTeX"
                      language="latex"
                      code={`@misc{indonesia5142026,
-  author = {Mendez, Carlos and Abdulah, Rusli and Arvianto, Bimo and Leiva, Favio},
+  author = {Mendez, Carlos and Abdulah, Rusli and Arvianto, Bimo},
   title = {{Indonesia514}: A Data Science Repository to Study Regional Development in Indonesia},
   year = {2026},
   publisher = {GitHub},
