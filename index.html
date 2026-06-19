@@ -818,7 +818,7 @@
             date: "2026-04-13",
             pinned: false,
             links: [
-              { label_key: "link.viewGeojson", url: "https://github.com/quarcs-lab/indonesia514/blob/main/maps/mapIndonesia514_new.geojson", type: "github" },
+              { label_key: "link.viewGeojson", url: "https://github.com/quarcs-lab/indonesia514/blob/main/maps/mapIdonesia514tp.geojson", type: "github" },
             ],
             rows: 514,
           },
@@ -852,8 +852,8 @@
             },
             {
               name: "Bimo Arvianto",
-              title: "Doctoral Student",
-              affiliation: "Nagoya University, Japan",
+              title: "Contributor",
+              affiliation: "",
               avatar: "https://avatars.githubusercontent.com/u/21993532?v=4",
               website: "https://github.com/Arvibim",
             },
@@ -1786,7 +1786,7 @@
                                   {t(lang, 'table.cat.boundaries')}
                                 </span>
                               </td>
-                              <td className="px-3 py-3 md:px-6 md:py-4 font-mono text-xs"><a href="https://github.com/quarcs-lab/indonesia514/blob/main/maps/mapIndonesia514_new.geojson" target="_blank" rel="noreferrer" className="text-cyan-400 hover:text-cyan-300 hover:underline transition-colors">/maps/mapIndonesia514_new.geojson</a></td>
+                              <td className="px-3 py-3 md:px-6 md:py-4 font-mono text-xs"><a href="https://github.com/quarcs-lab/indonesia514/blob/main/maps/mapIdonesia514tp.geojson" target="_blank" rel="noreferrer" className="text-cyan-400 hover:text-cyan-300 hover:underline transition-colors">/maps/mapIdonesia514tp.geojson</a></td>
                               <td className="px-3 py-3 md:px-6 md:py-4 text-slate-400">{t(lang, 'table.desc.boundaries')}</td>
                               <td className="px-3 py-3 md:px-6 md:py-4"><code className="font-mono text-cyan-400 bg-cyan-400/10 px-2 py-0.5 rounded text-xs font-bold">districtID</code></td>
                             </tr>
@@ -1860,12 +1860,12 @@ df = pd.merge(df, df_gs[['districtID', 'gs_2022']], on='districtID', how='inner'
 
 # 4. VERIFY
 print(f"Merge Complete. Final Rows: {len(df)}")
-display(df[['district_en', 'province_en', 'island_en', 'gdp_2022', 'gfcf_2022', 'gs_2022']].head()) #replace 'district_en' and 'island_en' into 'district_bahasa' and 'island_bahasa' for Bahasa Indonesia version
+display(df[['district', 'province', 'Island', 'gdp_2022', 'gfcf_2022', 'gs_2022']].head())
 
 # 5. SCATTERPLOT: GDP vs Investment
 fig = px.scatter(
     df, x='gdp_2022', y='gfcf_2022',
-    hover_name='district_en', color='island_en',  ## replace 'district_en' and 'island_en' into 'district_bahasa' and 'island_bahasa' for Bahasa Indonesia version
+    hover_name='district', color='Island',
     trendline='ols', trendline_scope='overall',
     labels={'gdp_2022': 'GDP 2022 (Billion IDR)',
             'gfcf_2022': 'GFCF 2022 (Billion IDR)'},
@@ -1888,29 +1888,19 @@ fig.show()`}
                         code={`import geopandas as gpd
 import matplotlib.pyplot as plt
 
-
-
-# 1. SETUP: Define Source URLs
-REPO_URL = "https://raw.githubusercontent.com/quarcs-lab/indonesia514/main"
-
-url_gdp  = f"{REPO_URL}/gdp/gdp.csv"
-url_gfcf = f"{REPO_URL}/gfcf/gfcf.csv"
-url_gs   = f"{REPO_URL}/gs/gs.csv"
-url_map  = f"{REPO_URL}/maps/mapIndonesia514_new.geojson"
-
-# 2. LOAD SPATIAL DATA
-geojson_url = f"{REPO_URL}/maps/mapIndonesia514_new.geojson"
+# 1. LOAD SPATIAL DATA
+geojson_url = f"{REPO_URL}/maps/mapIdonesia514tp.geojson"
 print("Loading GeoJSON map...")
 gdf_boundaries = gpd.read_file(geojson_url)
 
-# 3. SPATIAL DATA PREPARATION
+# 2. SPATIAL DATA PREPARATION
 # Ensure 'districtID' is integer to match the pandas dataframe
 gdf_boundaries['districtID'] = gdf_boundaries['districtID'].astype(int)
 
-# 4 . ATTRIBUTE JOIN
+# 3. ATTRIBUTE JOIN
 gdf_indonesia = gdf_boundaries.merge(df, on='districtID', how='inner')
 
-# 5. VISUALIZATION (Choropleth Map)
+# 4. VISUALIZATION (Choropleth Map)
 fig, ax = plt.subplots(1, 1, figsize=(14, 8))
 
 gdf_indonesia.plot(
