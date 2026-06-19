@@ -1880,9 +1880,9 @@ import plotly.express as px
 # 1. SETUP: Define Source URLs
 REPO_URL = "https://raw.githubusercontent.com/quarcs-lab/indonesia514/main"
 
-url_gdp  = f"{REPO_URL}/gdp/gdp.csv"
-url_gfcf = f"{REPO_URL}/gfcf/gfcf.csv"
-url_gs   = f"{REPO_URL}/gs/gs.csv"
+url_gdp  = REPO_URL + "/gdp/gdp.csv"
+url_gfcf = REPO_URL + "/gfcf/gfcf.csv"
+url_gs   = REPO_URL + "/gs/gs.csv"
 
 # 2. LOAD: Read CSVs
 print("Loading datasets...")
@@ -1895,7 +1895,7 @@ df = pd.merge(df_gdp, df_gfcf[['districtID', 'gfcf_2022']], on='districtID', how
 df = pd.merge(df, df_gs[['districtID', 'gs_2022']], on='districtID', how='inner')
 
 # 4. VERIFY
-print(f"Merge Complete. Final Rows: {len(df)}")
+print("Merge Complete. Final Rows: " + str(len(df)))
 display(df[['district_en', 'province_en', 'island_en', 'gdp_2022', 'gfcf_2022', 'gs_2022']].head()) #replace 'district_en' and 'island_en' into 'district_bahasa' and 'island_bahasa' for Bahasa Indonesia version
 
 # 5. SCATTERPLOT: GDP vs Investment
@@ -1929,13 +1929,13 @@ import matplotlib.pyplot as plt
 # 1. SETUP: Define Source URLs
 REPO_URL = "https://raw.githubusercontent.com/quarcs-lab/indonesia514/main"
 
-url_gdp  = f"{REPO_URL}/gdp/gdp.csv"
-url_gfcf = f"{REPO_URL}/gfcf/gfcf.csv"
-url_gs   = f"{REPO_URL}/gs/gs.csv"
-url_map  = f"{REPO_URL}/maps/mapIndonesia514_new.geojson"
+url_gdp  = REPO_URL + "/gdp/gdp.csv"
+url_gfcf = REPO_URL + "/gfcf/gfcf.csv"
+url_gs   = REPO_URL + "/gs/gs.csv"
+url_map  = REPO_URL + "/maps/mapIndonesia514_new.geojson"
 
 # 2. LOAD SPATIAL DATA
-geojson_url = f"{REPO_URL}/maps/mapIndonesia514_new.geojson"
+geojson_url = REPO_URL + "/maps/mapIndonesia514_new.geojson"
 print("Loading GeoJSON map...")
 gdf_boundaries = gpd.read_file(geojson_url)
 
