@@ -826,7 +826,7 @@
             date: "2026-04-13",
             pinned: false,
             links: [
-              { label_key: "link.viewGeojson", url: "https://github.com/quarcs-lab/indonesia514/blob/main/maps/mapIdonesia514tp.geojson", type: "github" },
+              { label_key: "link.viewGeojson", url: "https://github.com/quarcs-lab/indonesia514/blob/main/maps/mapIndonesia514tp.geojson", type: "github" },
             ],
             rows: 514,
           },
@@ -1810,7 +1810,7 @@
                                   {t(lang, 'table.cat.boundaries')}
                                 </span>
                               </td>
-                              <td className="px-3 py-3 md:px-6 md:py-4 font-mono text-xs"><a href="https://github.com/quarcs-lab/indonesia514/blob/main/maps/mapIdonesia514tp.geojson" target="_blank" rel="noreferrer" className="text-cyan-400 hover:text-cyan-300 hover:underline transition-colors">/maps/mapIdonesia514tp.geojson</a></td>
+                              <td className="px-3 py-3 md:px-6 md:py-4 font-mono text-xs"><a href="https://github.com/quarcs-lab/indonesia514/blob/main/maps/mapIndonesia514tp.geojson" target="_blank" rel="noreferrer" className="text-cyan-400 hover:text-cyan-300 hover:underline transition-colors">/maps/mapIndonesia514tp.geojson</a></td>
                               <td className="px-3 py-3 md:px-6 md:py-4 text-slate-400">{t(lang, 'table.desc.boundaries')}</td>
                               <td className="px-3 py-3 md:px-6 md:py-4"><code className="font-mono text-cyan-400 bg-cyan-400/10 px-2 py-0.5 rounded text-xs font-bold">districtID</code></td>
                             </tr>
@@ -1913,7 +1913,7 @@ fig.show()`}
 import matplotlib.pyplot as plt
 
 # 1. LOAD SPATIAL DATA
-geojson_url = REPO_URL + "/maps/mapIdonesia514tp.geojson"
+geojson_url = REPO_URL + "/maps/mapIndonesia514tp.geojson"
 print("Loading GeoJSON map...")
 gdf_boundaries = gpd.read_file(geojson_url)
 
