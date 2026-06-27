@@ -1909,7 +1909,43 @@ fig.show()`}
                       <p className="text-slate-400 mb-4 ml-9">{t(lang, 'ex.2.desc')}</p>
                       <CodeBlock
                         title="example_02_spatial_merge.py"
-                        code={`import geopandas as gpd\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\n# 1. SETUP\nREPO_URL = "https://raw.githubusercontent.com/quarcs-lab/indonesia514/main"\n\n# 2. LOAD SPATIAL DATA\ngeojson_url = REPO_URL + "/maps/mapIndonesia514.geojson"\nprint("Loading GeoJSON map...")\ngdf_boundaries = gpd.read_file(geojson_url)\n\n# 3. SPATIAL DATA PREPARATION\ngdf_boundaries['districtID'] = gdf_boundaries['districtID'].astype(int)\n\n# 4. LOAD ATTRIBUTE DATA\ngdp_url = REPO_URL + "/gdp/gdp.csv"\nprint("Loading GDP data...")\ndf = pd.read_csv(gdp_url)\ndf['districtID'] = df['districtID'].astype(int)\n\n# 5. ATTRIBUTE JOIN\ngdf_indonesia = gdf_boundaries.merge(df, on='districtID', how='inner')\n\n# 6. VISUALIZATION (Choropleth Map)`}
+                        code={`import geopandas as gpd
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# 1. SETUP
+REPO_URL = "https://raw.githubusercontent.com/quarcs-lab/indonesia514/main"
+
+# 2. LOAD SPATIAL DATA
+geojson_url = REPO_URL + "/maps/mapIndonesia514.geojson"
+print("Loading GeoJSON map...")
+gdf_boundaries = gpd.read_file(geojson_url)
+
+# 3. SPATIAL DATA PREPARATION
+gdf_boundaries['districtID'] = gdf_boundaries['districtID'].astype(int)
+
+# 4. LOAD ATTRIBUTE DATA
+gdp_url = REPO_URL + "/gdp/gdp.csv"
+print("Loading GDP data...")
+df = pd.read_csv(gdp_url)
+df['districtID'] = df['districtID'].astype(int)
+
+# 5. ATTRIBUTE JOIN
+gdf_indonesia = gdf_boundaries.merge(df, on='districtID', how='inner')
+
+# 6. VISUALIZATION (Choropleth Map)
+fig, ax = plt.subplots(1, 1, figsize=(14, 8))
+gdf_indonesia.plot(
+    column='gdp_2022',      # Variable to map
+    cmap='viridis',          # Color palette
+    linewidth=0.1, edgecolor='white',
+    legend=True,
+    legend_kwds={'label': "GDP 2022 (Billion IDR)", 'orientation': "horizontal"},
+    ax=ax
+)
+ax.set_title("Indonesia: District GDP (2022)", fontsize=15)
+ax.set_axis_off()
+plt.show()`}
                       />
                     </AnimateIn>
 
